@@ -31,7 +31,31 @@
         </div>
     </div>
 	
-	
-	
+        <div class="container">
+
+        
+        <div class="takenote input-field" onclick="onClickTitle()">
+            <input id = "titleInput" type="text" placeholder="Take a note..."  >
+            <div id="otherPart">
+                <textarea id = "textInput" type="text" placeholder="Take a note..." class="materialize-textarea"></textarea>
+                <div class="check_list">
+                    <div id="check_lists">                       
+                    
+                    </div>  
+                    <i class="material-icons right" onclick="addCheckListItem()" style="cursor: pointer;" >add</i></button>
+                </div>
+                <button class="waves-effect waves btn-flat" onclick="onSave()">Save</button>
+                <button class="waves-effect waves btn-flat" onclick="onHide()">Close</button>
+                <button id='btnCheck' class="waves-effect waves btn-flat" onclick="onCheckList()">Check List<i class="material-icons right" >check_box</i></button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="target">
+
+            </div>
+        </div>
+        
+    </div>	
 </body>
 </html>
