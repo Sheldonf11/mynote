@@ -97,3 +97,65 @@ function getTemplate(title="",text="",checklist){
     main_div.appendChild(sub1_div);
     return main_div;
 }
+
+function loadItmes(string){
+    var target = document.getElementById('target');
+    target.innerHTML = "";
+    for(var i=0;i<localList.length;i++)
+    {
+        var obj = localList[i];
+        if(obj['title'].includes(string) || obj['text'].includes(string)){
+            var checklist = obj['list'];
+            if(checklist!=null)
+                checklist.id = 'checklist' + i ;
+            var t = getTemplate(obj['title'],obj['text'],checklist);
+            target.appendChild(t);
+        }
+    }  
+}
+
+window.onload = function(){
+    loadItmes("");
+}
+
+function onSearch(){
+    var searchText = document.getElementById('search').value;
+    loadItmes(searchText);
+}
+
+function onClose(){
+    var search = document.getElementById('search');
+    search.value = "";
+    loadItmes(""); 
+}
+
+function onCheckList(){
+    var textobj = document.getElementById('textInput');
+    textobj.style.display = 'none';
+    var checkList = document.getElementsByClassName('check_list')[0];
+    checkList.style.display = 'block';
+
+    document.getElementById('btnCheck').style.display = 'none';
+}
+
+function addCheckListItem(){
+
+    var list = document.getElementById('check_lists');
+
+    var div = document.createElement('div');
+    var label = document.createElement('label');
+    var inputc = document.createElement('input');
+    inputc.type = 'checkbox';
+    var span = document.createElement('span');
+    var inputa = document.createElement('input');
+    inputa.type = 'text';
+    inputa.placeholder = 'List Item';
+
+    span.appendChild(inputa);
+    label.appendChild(inputc);
+    label.appendChild(span);
+    div.append(label);
+
+    list.appendChild(div);
+
+}
