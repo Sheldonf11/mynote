@@ -62,4 +62,10 @@ nav{
       margin-bottom:10px;
   }
 
+#otherPart{
+    display: none;
+}
 
+.check_list{
+    display: none;
+}
